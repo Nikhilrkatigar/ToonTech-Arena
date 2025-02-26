@@ -108,7 +108,8 @@ body {
 /* Navigation Style for Home Page */
 .nav-container {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center; 
     gap: 100px;
     row-gap: 100px;
     column-gap: 10px;
@@ -118,8 +119,8 @@ body {
 
 .nav-item {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 45%;
+   height: auto;
     overflow: hidden;
     border-radius: 15px;
     transition: transform 0.3s ease-in-out;
@@ -246,5 +247,29 @@ input:focus {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-item {
+        width: 90%; /* 1 item per row on smaller screens */
+    }
+
+    .registration-container {
+        width: 95%; /* Make form fit on mobile */
+    }
+
+    .table {
+        font-size: 14px; /* Reduce font size */
+    }
+
+    .table input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 12px 20px;
     }
 }
