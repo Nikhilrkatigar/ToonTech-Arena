@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication - ToonTech Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+
+    <a href="{{ url_for('home') }}" class="back-home">🏠 Back to Home</a>
+
+
+    <div class="event-page">
+       
+        <img src="{{ url_for('static', filename='images/communication.webp') }}" alt="Coding Event" class="event-img">
+
+        <div class="event-details">
+            <h2>🎤 Communication Event</h2>
+            <p>Master the art of speaking! Express yourself, persuade audiences, and become a confident speaker.</p>
+            <p><b>Skills Required:</b> Public Speaking, Debate, Confidence</p>
+        </div>
+    </div>
+
+</body>
+</html>

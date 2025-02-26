@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToonTech-Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+
+    <a href="{{ url_for('home') }}" class="back-home">🏠 Back to Home</a>
+
+
+    <div class="home-container">
+        <h1>🎭 Welcome to ToonTech-Arena 🎮</h1>
+
+        
+
+
+        <!-- 2x3 Grid Layout for Navigation -->
+        <div class="nav-container">
+            <div class="nav-row">
+                <a href="{{ url_for('coding') }}" class="nav-item">
+                    <img src="{{ url_for('static', filename='images/coding.webp') }}" alt="Coding">
+                    <span class="nav-title">Coding</span>
+                </a>
+                
+                <a href="{{ url_for('communication') }}" class="nav-item">
+                    <img src="{{ url_for('static', filename='images/communication.webp') }}" alt="Communication">
+                    <span class="nav-title">Communication</span>
+                </a>
+            </div>
+            <div class="nav-row">
+                <a href="{{ url_for('gaming' )}}" class="nav-item">
+                    <img src="{{ url_for('static', filename='images/gaming.webp') }}" alt="Gaming">
+                    <span class="nav-title">Gaming</span>
+                </a>
+                <a href="{{ url_for('quiz') }}" class="nav-item">
+                    <img src="{{ url_for('static', filename='images/quiz.webp') }}" alt="Quiz">
+                    <span class="nav-title">Quiz</span>
+                </a>
+            </div>
+            <div class="nav-row">
+                <a href="{{ url_for('data' )}}" class="nav-item">
+                    <img src="{{ url_for('static', filename='images/data.webp') }}" alt="Data Analyzing">
+                    <span class="nav-title">Data Analysis</span>
+                </a>
+                <a href="{{ url_for('startup' )}}" class="nav-item">
+                    <img src="{{ url_for('static', filename='images/startup.webp') }}" alt="Startup">
+                    <span class="nav-title">Startup</span>
+                </a>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='register.js') }}"></script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+
+        <!-- 🚀 Registration Button at the Bottom -->
+        <div class="register-section">
+            <a href="{{ url_for('show_register_page') }}" class="register-btn">🎟 Register Now</a>
+
+
+        </div>
+    </div>
+
+</body>
+</html>

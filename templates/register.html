@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - ToonTech Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <a href="{{ url_for('home') }}" class="back-home">🏠 Back to Home</a>
+
+    <div class="registration-container">
+        <h2>🎭 Player Details</h2>
+        <form id="registrationForm">
+            <table class="table">
+                <tr>
+                    <th>Event Name</th>
+                    <th>Student Name</th>
+                    <th>Phone Number</th>
+                    <th>Register Number</th>
+                    <th>Class</th>
+                </tr>
+                <tr>
+                    <td>Coding</td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+                <tr>
+                    <td>Communication</td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+                <tr>
+                    <td>Data Analyzing</td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+                <tr>
+                    <td>Gaming</td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+                <tr>
+                    <td>Quiz & Treasure Hunt</td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+                <tr>
+                    <td>Startup</td>
+                    <td><input type="text" name="student_name" required></td>
+                    <td><input type="text" name="phone_number" pattern="\d{10}" required></td>
+                    <td><input type="text" name="register_number" required></td>
+                    <td><input type="text" name="class" required></td>
+                </tr>
+            </table>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='register.js') }}"></script> <!-- ✅ Script moved to the bottom -->
+</body>
+</html>

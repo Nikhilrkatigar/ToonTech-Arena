@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding - ToonTech Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+
+    <a href="{{ url_for('home') }}" class="back-home">🏠 Back to Home</a>
+
+
+    <div class="event-page">
+        <img src="{{ url_for('static', filename='images/coding.webp') }}" alt="Coding Event" class="event-img">
+
+        <div class="event-details">
+            <h2>💻 Coding Event</h2>
+            <p>Join the world of coding where logic meets creativity! Solve complex challenges, write algorithms, and debug your way to victory.</p>
+            <p><b>Skills Required:</b> Problem-solving, Logic, Programming</p>
+            <p><b>Languages:</b> Python, Java, C++</p>
+        </div>
+    </div>
+
+</body>
+</html>
