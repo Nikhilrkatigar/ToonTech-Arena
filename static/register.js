@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Send data to Flask backend
-        fetch("https://toontech-arena.onrender.com/register", {  
+        fetch("https://toontech-arena-1.onrender.com/register", {  
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
