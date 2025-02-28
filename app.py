@@ -3,7 +3,7 @@ from flask_cors import CORS
 from pymongo import MongoClient
 
 app = Flask(__name__, template_folder="templates")  # Ensure Flask finds HTML files
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # ✅ Connect to MongoDB
 client = MongoClient("mongodb+srv://nikhilkatigar76:Nikhil%407996@toontecharena.9eh6h.mongodb.net/?retryWrites=true&w=majority")
