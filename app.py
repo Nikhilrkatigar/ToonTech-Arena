@@ -45,35 +45,42 @@ def startup():
 
 @app.route("/register", methods=["POST"])
 def submit_registration():
-    data = request.json  # Get JSON data from frontend
+    try:
+        data = request.get_json()  # ✅ Ensure JSON format
 
-    if not isinstance(data, list):  # Ensure data is a list
-        return jsonify({"message": "Invalid data format"}), 400
+        if not isinstance(data, list):  # ✅ Ensure data is a list
+            return jsonify({"message": "Invalid data format"}), 400
 
-    if len(data) == 0:
-        return jsonify({"message": "No data received"}), 400
+        if len(data) == 0:
+            return jsonify({"message": "No data received"}), 400
 
-    # Assign a user ID (you can generate unique IDs based on session/auth)
-    user_id = "user1"  # Replace with dynamic user IDs if needed
+        user_id = "user1"  # ✅ Replace this with a real user ID if needed
 
-    # Dictionary to track duplicate events
-    event_counts = {}
+        # Track duplicate events
+        event_counts = {}
 
-    # Modify event names before inserting into MongoDB
-    for entry in data:
-        event_name = entry["event_name"]
+        cleaned_data = []
+        for entry in data:
+            event_name = entry.get("event_name", "No Event")
 
-        # Remove "No Event" and name duplicate events properly
-        if event_name == "No Event":
-            continue  # Skip No Event entries
+            if event_name == "No Event":
+                continue  
 
-        if event_name in event_counts:
-            event_counts[event_name] += 1
-            entry["event_name"] = f"{event_name}_{event_counts[event_name]}"
-        else:
-            event_counts[event_name] = 1
+            if event_name in event_counts:
+                event_counts[event_name] += 1
+                entry["event_name"] = f"{event_name}_{event_counts[event_name]}"
+            else:
+                event_counts[event_name] = 1
 
-        entry["_id"] = user_id  # Assign user_id to each entry
+            entry["user_id"] = user_id  # ✅ Use "user_id" instead of "_id"
+            cleaned_data.append(entry)
 
-    collection.insert_many(data)  # Store entries in MongoDB
-    return jsonify({"message": "Registration Successful!"})
+        if cleaned_data:
+            collection.insert_many(cleaned_data)
+
+        return jsonify({"message": "Registration Successful!"}), 200  # ✅ Always return JSON
+
+    except Exception as e:
+        print(f"Error: {str(e)}")  # ✅ Show errors in Flask logs
+        return jsonify({"message": "Server Error", "error": str(e)}), 500
+
