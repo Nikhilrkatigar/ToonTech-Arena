@@ -43,7 +43,6 @@ def show_register_page():
 def startup():
     return render_template('startup.html')
 
-# ✅ Registration API (for form submission)
 @app.route("/register", methods=["POST"])
 def submit_registration():
     data = request.json  # Get JSON data from frontend
@@ -54,9 +53,27 @@ def submit_registration():
     if len(data) == 0:
         return jsonify({"message": "No data received"}), 400
 
-    collection.insert_many(data)  # Store multiple entries in MongoDB
+    # Assign a user ID (you can generate unique IDs based on session/auth)
+    user_id = "user1"  # Replace with dynamic user IDs if needed
 
+    # Dictionary to track duplicate events
+    event_counts = {}
+
+    # Modify event names before inserting into MongoDB
+    for entry in data:
+        event_name = entry["event_name"]
+
+        # Remove "No Event" and name duplicate events properly
+        if event_name == "No Event":
+            continue  # Skip No Event entries
+
+        if event_name in event_counts:
+            event_counts[event_name] += 1
+            entry["event_name"] = f"{event_name}_{event_counts[event_name]}"
+        else:
+            event_counts[event_name] = 1
+
+        entry["_id"] = user_id  # Assign user_id to each entry
+
+    collection.insert_many(data)  # Store entries in MongoDB
     return jsonify({"message": "Registration Successful!"})
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
