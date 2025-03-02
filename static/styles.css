@@ -8,21 +8,164 @@ body {
     color: white;
     }
 
+    #event-info {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        margin: 150px auto;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
     
-  
+     /* Navigation Links */
+    .navbar {
+        display: flex;
+    justify-content: space-around; /* Even spacing */
+    align-items: center;
+    background: transparent;
+    padding: 10px;
+    border-radius: 15px;
+    }
+    
+    .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+    color: cyan;
+    font-size: 15px;
+   
+    background: transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    }
+   
+    .nav-links {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+    
+    .nav-links li {
+        margin: 0 15px;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    }
+    
+    .nav-links .active {
+        background-color: cyan;
+        color: black;
+    }
+
+    .nav-links a:hover {
+        background-color: cyan;
+        color: black;
+    }
+    
+   
+    /* 📱 Mobile Menu Button (Hidden in Desktop) */
+    
+    .menu-btn {
+        display: none;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    }
+    
+    .menu-btn.active {
+        background-color: cyan;
+        color: black;
+    }
+
+    .menu-btn span {
+        margin-right: 10px;
+    }
+    
+    .hamburger {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: relative;
+    }
+    
+    .hamburger::before,
+    .hamburger::after {
+        content: "";
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        left: 0;
+    }
+    
+    .hamburger::before {
+        top: -8px;
+    }
+    
+    .hamburger::after {
+        bottom: -8px;
+    }
+    
+    /* Mobile Menu - Initially Hidden */
+    .mobile-menu {
+        display: none;
+    background: black;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    }
+    
+    .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .mobile-menu ul li {
+        padding: 10px;
+    }
+    
+
+    
+    .mobile-menu ul li a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        background: cyan;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+
+
+
 /* Cursor Glow Effect */
 .cursor-glow {
     position: fixed;
     width: 20px;
     height: 20px;
-    background: rgba(255, 255, 0, 0.6); /* Yellow glow */
+    background: radial-gradient(circle, rgba(255, 0, 100, 0.6) 0%, rgba(255, 0, 100, 0) 80%);
     border-radius: 50%;
     pointer-events: none;
-    box-shadow: 0 0 15px 8px rgba(255, 255, 0, 0.8);
-    transition: transform 0.05s linear;
+    box-shadow: 0 0 15px 10px rgba(255, 0, 100, 0.8);
+    transition: transform 0.1s linear;
     transform: translate(-50%, -50%);
     z-index: 10000;
 }
+
 
 /* Back to Home Button */
 .back-home {
@@ -46,7 +189,7 @@ body {
 
 .register-section {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .register-btn {
@@ -97,7 +240,7 @@ body {
 
 .event-details h2 {
     font-size: 32px;
-    color: #ff4500;
+    color: cyan;
 }
 
 .event-details p {
@@ -107,21 +250,20 @@ body {
 
 /* Navigation Style for Home Page */
 .nav-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 100px;
-    row-gap: 100px;
-    column-gap: 10px;
+    display: grid; /* Change from flex to grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-template-rows: repeat(2, auto);  /* 2 rows */
+    gap: 20px; /* Adjust spacing */
     padding: 50px;
+    justify-content: center;
+    align-items: center;
    
 }
 
 .nav-item {
-    position: relative;
-    width: 45%;
-   height: auto;
-    overflow: hidden;
+    width: 80%; /* Fill the grid cell */
+    height: auto;
+    text-align: center;
     border-radius: 15px;
     transition: transform 0.3s ease-in-out;
     display: flex;
@@ -131,8 +273,8 @@ body {
 }
 
 .nav-item img {
-    width: 50%;
-    height: 50%;
+    width: 80%; /* Adjust width */
+    height: auto; /* Keep aspect ratio */
     border-radius: 15px;
     transition: transform 0.3s;
 }
@@ -254,12 +396,34 @@ input:focus {
     .nav-item {
         width: 90%; /* 1 item per row on smaller screens */
     }
+    .nav-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
+        grid-template-rows: auto; /* Adjust for smaller screens */
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
+        display: none;
+    }
+    .menu-btn {
+        display: block;
+    }
+
+    
+    .mobile-menu.show {
+        display: block;
+    }
+
 
     .registration-container {
-        width: 95%; /* Make form fit on mobile */
+        width: 100%; /* Make form fit on mobile */
     }
 
     .table {
+       
         font-size: 14px; /* Reduce font size */
     }
 
@@ -271,5 +435,73 @@ input:focus {
     .submit-btn {
         font-size: 16px;
         padding: 12px 20px;
+    }
+}
+
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden initially */
+    background-color: #6A0DAD;
+    padding-top: 60px;
+    transition: 0.3s;
+}
+
+.sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #5A009D;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Open Button */
+.open-btn {
+    font-size: 24px;
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .open-btn {
+        font-size: 20px;
     }
 }

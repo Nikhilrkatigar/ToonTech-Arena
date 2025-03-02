@@ -14,9 +14,54 @@
 
     <div class="home-container">
         <h1>🎭 Welcome to ToonTech-Arena 🎮</h1>
+ <!-- 🌟 Navigation Bar (For Desktop Users) -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}" class="active">HOME</a></li>
+                <li><a href="{{ url_for('coding') }}">CODING</a></li>
+                <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
+                <li><a href="{{ url_for('gaming' )}}">GAMING</a></li>
+                <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
+                <li><a href="{{ url_for('data' )}}">DATA ANALYZING</a></li>
+                <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+                <li><a href="{{ url_for('show_register_page') }}">🎟 Register Now</a></li>
+            </ul>
+            
+        </nav>
+
+        <!-- 📱 Mobile Menu Button -->
+    <div class="menu-btn">
+        <span>☰ Menu</span>
+    </div>
+
+ <!-- 📱 Mobile Menu (Hidden by Default) -->
+ <div class="mobile-menu">
+    <ul>
+        <li><a href="{{ url_for('home') }}" class="active">HOME</a></li>
+        <li><a href="{{ url_for('coding') }}">CODING</a></li>
+        <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
+        <li><a href="{{ url_for('gaming' )}}">GAMING</a></li>
+        <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
+        <li><a href="{{ url_for('data' )}}">DATA ANALYZING</a></li>
+        <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+        <li><a href="{{ url_for('show_register_page') }}">🎟 Register Now</a></li>
+    </ul>
+</div>
 
         
-
+        <div class="event-info">
+            <h2>🚀 Why Participate in ToonTech-Arena?</h2>
+            <h4>ToonTech-Arena is a cartoon-themed tech fest where students can showcase their skills in various domains like coding, communication, gaming, data analysis, and startups.</h4>
+            <h3>🎯 Benefits of Participating:</h3>
+            <ul start=" ">
+                <li>🌟 Gain hands-on experience in competitive events.</li>
+                <li>🧠 Boost your problem-solving and teamwork skills.</li>
+                <li>🎮 Have fun while learning in an interactive environment.</li>
+                <li>🏆 Win exciting prizes and certificates.</li>
+                <li>🤝 Network with like-minded tech enthusiasts.</li>
+                <li>🚀 Enhance your resume with real-world experience.</li>
+            </ul>
+        </div>
 
         <!-- 2x3 Grid Layout for Navigation -->
         <div class="nav-container">
@@ -57,13 +102,13 @@
         <script src="{{ url_for('static', filename='script.js') }}"></script>
     
 
-        <!-- 🚀 Registration Button at the Bottom -->
-        <div class="register-section">
-            <a href="{{ url_for('show_register_page') }}" class="register-btn">🎟 Register Now</a>
-
+       
 
         </div>
     </div>
+<footer>
+    <p>© 2021 ToonTech-Arena. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>

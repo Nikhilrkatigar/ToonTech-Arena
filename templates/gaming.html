@@ -9,17 +9,56 @@
 </head>
 <body>
 
-    <a href="{{ url_for('home') }}" class="back-home">🏠 Back to Home</a>
+    
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}" >HOME</a></li>
+            <li><a href="{{ url_for('coding') }}" >CODING</a></li>
+            <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
+            <li><a href="{{ url_for('gaming' )}}" class="active">GAMING</a></li>
+            <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
+            <li><a href="{{ url_for('data' )}}">DATA ANALYZING</a></li>
+            <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+            <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+            <li><a href="{{ url_for('show_register_page') }}" >🎟 Register Now</a></li>
+        </ul>
+       
+    </nav>
+
+       <!-- 📱 Mobile Menu Button -->
+       <div class="menu-btn">
+        <span>☰ Menu</span>
+    </div>
+
+ <!-- 📱 Mobile Menu (Hidden by Default) -->
+ <div class="mobile-menu">
+    <ul>
+        <li><a href="{{ url_for('home') }}" >HOME</a></li>
+        <li><a href="{{ url_for('coding') }}">CODING</a></li>
+        <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
+        <li><a href="{{ url_for('gaming' )}}" class="active">GAMING</a></li>
+        <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
+        <li><a href="{{ url_for('data' )}}">DATA ANALYZING</a></li>
+        <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+        <li><a href="{{ url_for('show_register_page') }}">🎟 Register Now</a></li>
+    </ul>
+</div>
 
 
     <div class="event-page">
        
+        
         <img src="{{ url_for('static', filename='images/gaming.webp') }}" alt="Coding Event" class="event-img">
 
         <div class="event-details">
             <h2>🎮 Gaming Event</h2>
             <p>Compete in exciting games, showcase your reflexes, and challenge opponents in this high-energy event!</p>
             <p><b>Skills Required:</b> Strategy, Reflexes, Teamwork</p>
+       
+            <script src="{{ url_for('static', filename='register.js') }}"></script>
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+       
         </div>
     </div>
 

@@ -8,7 +8,38 @@
 </head>
 <body>
 
-    <a href="{{ url_for('home') }}" class="back-home">🏠 Back to Home</a>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}" >HOME</a></li>
+            <li><a href="{{ url_for('coding') }}" >CODING</a></li>
+            <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
+            <li><a href="{{ url_for('gaming' )}}">GAMING</a></li>
+            <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
+            <li><a href="{{ url_for('data' )}}">DATA ANALYZING</a></li>
+            <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+            <li><a href="{{ url_for('show_register_page') }}" class="active">🎟 Register Now</a></li>
+        </ul>
+    </nav>
+
+       <!-- 📱 Mobile Menu Button -->
+       <div class="menu-btn">
+        <span>☰ Menu</span>
+    </div>
+
+ <!-- 📱 Mobile Menu (Hidden by Default) -->
+ <div class="mobile-menu">
+    <ul>
+        <li><a href="{{ url_for('home') }}" >HOME</a></li>
+        <li><a href="{{ url_for('coding') }}">CODING</a></li>
+        <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
+        <li><a href="{{ url_for('gaming' )}}">GAMING</a></li>
+        <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
+        <li><a href="{{ url_for('data' )}}">DATA ANALYZING</a></li>
+        <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+        <li><a href="{{ url_for('show_register_page') }}" class="active">🎟 Register Now</a></li>
+    </ul>
+</div>
+
 
     <div class="registration-container">
         <h2>🎭 Player Details</h2>
@@ -79,8 +110,14 @@
                 </tr>
             </table>
             <button type="submit" class="submit-btn">Submit</button>
+      
         </form>
+
+        
+
     </div>
+   
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
 
     <script src="{{ url_for('static', filename='register.js') }}"></script> <!-- ✅ Script moved to the bottom -->
 </body>
