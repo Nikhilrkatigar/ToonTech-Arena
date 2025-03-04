@@ -80,12 +80,12 @@ body {
     background: transparent;
     color: white;
     padding: 10px;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     }
     
     .menu-btn.active {
-        background-color: cyan;
+        background-color: transparent;
         color: black;
     }
 
@@ -122,7 +122,7 @@ body {
     .mobile-menu {
         display: none;
     background: black;
-    position: absolute;
+    position: left;
     top: 50px;
     left: 0;
     width: 100%;
@@ -145,7 +145,7 @@ body {
         padding: 10px;
         color: white;
         text-decoration: none;
-        background: cyan;
+        background: transparent;
         margin-bottom: 5px;
         border-radius: 5px;
     }
@@ -207,6 +207,11 @@ body {
     transform: scale(1.2);
     background-color: #00d9ff;
 }
+
+::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
 
 /* Event Page Layout */
 .event-page {
@@ -412,6 +417,16 @@ input:focus {
         display: block;
     }
 
+    .event-details {
+    margin: 0 40px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 60px;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        justify-self: center;
+    }
     
     .mobile-menu.show {
         display: block;

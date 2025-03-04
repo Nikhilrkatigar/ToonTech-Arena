@@ -27,23 +27,21 @@
        <!-- 📱 Mobile Menu Button -->
        <div class="menu-btn">
         <span>☰ Menu</span>
-    </div>
+    </div>   
 
- <!-- 📱 Mobile Menu (Hidden by Default) -->
-   <div class="sidebar" id="sidebar">
-    <button class="close-btn" onclick="toggleSidebar()">×</button>
-    
-       <a href="{{ url_for('home') }}" >HOME</a>
-       <a href="{{ url_for('coding') }}" class="active">CODING</a>
-       <a href="{{ url_for('communication') }}">COMMUNICATION</a>
-       <a href="{{ url_for('gaming' )}}">GAMING</a>
-       <a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a>
-       <a href="{{ url_for('data' )}}">DATA ANALYZING</a>
-       <a href="{{ url_for('startup' )}}">STARTUP</a>
-       <a href="{{ url_for('show_register_page') }}">🎟 Register Now</a>
-   
+<!-- 📱 Mobile Menu (Hidden by Default) -->
+<div class="mobile-menu">
+<ul>
+    <li><a href="{{ url_for('home') }}" >HOME</a></li>
+    <li><a href="{{ url_for('coding') }}">CODING</a></li>
+    <li><a href="{{ url_for('communication') }}" class="active">COMMUNICATION</a></li>
+    <li><a href="{{ url_for('gaming' )}}">GAMING</a></li>
+    <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
+    <li><a href="{{ url_for('data' )}}">DATA ANALYZING</a></li>
+    <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
+    <li><a href="{{ url_for('show_register_page') }}">🎟 Register Now</a></li>
+</ul>
 </div>
-<button class="open-btn" onclick="toggleSidebar()">☰</button>
 
     <div class="event-page">
         <img src="{{ url_for('static', filename='images/coding.webp') }}" alt="Coding Event" class="event-img">
@@ -59,6 +57,10 @@
 
         </div>
     </div>
+
+    <footer>
+        <p>© 2025 ToonTech-Arena.| All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
