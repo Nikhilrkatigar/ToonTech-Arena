@@ -1,4 +1,4 @@
-/* Global Styles */
+/* ===================== GLOBAL STYLES ===================== */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background: linear-gradient(135deg, #000000, #bcb5b5);
@@ -6,214 +6,9 @@ body {
     padding: 0;
     text-align: center;
     color: white;
-    }
-
-    #event-info {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        width: 80%;
-        margin: 150px auto;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-        text-align: center;
-    }
-    
-     /* Navigation Links */
-    .navbar {
-        display: flex;
-    justify-content: space-around; /* Even spacing */
-    align-items: center;
-    background: transparent;
-    padding: 10px;
-    border-radius: 15px;
-    }
-    
-    .navbar ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-    }
-
-    .navbar ul li a {
-        text-decoration: none;
-    color: cyan;
-    font-size: 15px;
-   
-    background: transparent;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    }
-   
-    .nav-links {
-        display: flex;
-        list-style: none;
-        padding: 0;
-    }
-    
-    .nav-links li {
-        margin: 0 15px;
-    }
-    
-    .nav-links a {
-        text-decoration: none;
-    color: white;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 10px;
-    }
-    
-    .nav-links .active {
-        background-color: cyan;
-        color: black;
-    }
-
-    .nav-links a:hover {
-        background-color: cyan;
-        color: black;
-    }
-    
-   
-    /* 📱 Mobile Menu Button (Hidden in Desktop) */
-    
-    .menu-btn {
-        display: none;
-    background: transparent;
-    color: white;
-    padding: 10px;
-    text-align: left;
-    cursor: pointer;
-    }
-    
-    .menu-btn.active {
-        background-color: transparent;
-        color: black;
-    }
-
-    .menu-btn span {
-        margin-right: 10px;
-    }
-    
-    .hamburger {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        position: relative;
-    }
-    
-    .hamburger::before,
-    .hamburger::after {
-        content: "";
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        position: absolute;
-        left: 0;
-    }
-    
-    .hamburger::before {
-        top: -8px;
-    }
-    
-    .hamburger::after {
-        bottom: -8px;
-    }
-    
-    /* Mobile Menu - Initially Hidden */
-    .mobile-menu {
-        display: none;
-    background: black;
-    position: left;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    }
-    
-    .mobile-menu ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .mobile-menu ul li {
-        padding: 10px;
-    }
-    
-
-    
-    .mobile-menu ul li a {
-        display: block;
-        padding: 10px;
-        color: white;
-        text-decoration: none;
-        background: transparent;
-        margin-bottom: 5px;
-        border-radius: 5px;
-    }
-
-
-
-/* Cursor Glow Effect */
-.cursor-glow {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(255, 0, 100, 0.6) 0%, rgba(255, 0, 100, 0) 80%);
-    border-radius: 50%;
-    pointer-events: none;
-    box-shadow: 0 0 15px 10px rgba(255, 0, 100, 0.8);
-    transition: transform 0.1s linear;
-    transform: translate(-50%, -50%);
-    z-index: 10000;
 }
 
-
-/* Back to Home Button */
-.back-home {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background: #877472;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: transform 0.3s ease, background 0.3s;
-}
-
-.back-home:hover {
-    transform: scale(1.1);
-    background: #ff00bf;
-}
-
-.register-section {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.register-btn {
-    display: inline-block;
-    background-color: #bcb5b5;
-    color: white;
-    font-size: 20px;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: transform 0.3s ease, background-color 0.3s;
-}
-
-.register-btn:hover {
-    transform: scale(1.2);
-    background-color: #00d9ff;
-}
-
-::placeholder {
-    color: white;
-    opacity: 1; /* Firefox */
-  }
-
-/* Event Page Layout */
+/* ===================== EVENT PAGE ===================== */
 .event-page {
     display: flex;
     align-items: center;
@@ -225,7 +20,8 @@ body {
 }
 
 .event-img {
-    width: 20%;
+    width: 30%;
+    max-width: 300px;
     border-radius: 15px;
     transition: transform 0.5s ease-in-out;
 }
@@ -243,43 +39,44 @@ body {
     text-align: left;
 }
 
-.event-details h2 {
-    font-size: 32px;
-    color: cyan;
+/* ===================== RESPONSIVE EVENT PAGE ===================== */
+@media (max-width: 768px) {
+    .event-page {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .event-img {
+        width: 80%;
+        max-width: 350px;
+    }
+
+    .event-details {
+        width: 90%;
+        padding: 15px;
+    }
 }
 
-.event-details p {
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-/* Navigation Style for Home Page */
+/* ===================== NAVIGATION MENU ===================== */
 .nav-container {
-    display: grid; /* Change from flex to grid */
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    grid-template-rows: repeat(2, auto);  /* 2 rows */
-    gap: 20px; /* Adjust spacing */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     padding: 50px;
-    justify-content: center;
-    align-items: center;
-   
 }
 
 .nav-item {
-    width: 80%; /* Fill the grid cell */
-    height: auto;
+    width: 90%;
+    max-width: 250px;
     text-align: center;
     border-radius: 15px;
     transition: transform 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
 }
 
 .nav-item img {
-    width: 80%; /* Adjust width */
-    height: auto; /* Keep aspect ratio */
+    width: 90%;
+    height: auto;
     border-radius: 15px;
     transition: transform 0.3s;
 }
@@ -288,18 +85,25 @@ body {
     transform: scale(1.1);
 }
 
-.nav-item:hover img {
-    transform: scale(1.2);
-}
-
 .nav-title {
     margin-top: 8px;
-    color: #ffffff;
+    color: white;
     font-weight: bold;
-    text-align: center;
 }
 
-/* Registration Page */
+/* ===================== MOBILE RESPONSIVE NAVIGATION ===================== */
+@media (max-width: 768px) {
+    .nav-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-item {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* ===================== REGISTRATION PAGE ===================== */
 .registration-container {
     background: linear-gradient(135deg, #000000, #bcb5b5);
 
@@ -386,82 +190,28 @@ input:focus {
     box-shadow: 0 0 15px cyan;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
+/* ===================== RESPONSIVE REGISTRATION PAGE ===================== */
 @media (max-width: 768px) {
-    .nav-item {
-        width: 90%; /* 1 item per row on smaller screens */
-    }
-    .nav-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
-        grid-template-rows: auto; /* Adjust for smaller screens */
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .navbar {
-        display: none;
-    }
-    .menu-btn {
-        display: block;
-    }
-
-    .event-details {
-    margin: 0 40px;
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-bottom: 60px;
-        width: 100%;
-        text-align: center;
-        flex-direction: column;
-        justify-self: center;
-    }
-    
-    .mobile-menu.show {
-        display: block;
-    }
-
-
     .registration-container {
-        width: 100%; /* Make form fit on mobile */
+        width: 90%;
     }
 
-    .table {
-       
-        font-size: 14px; /* Reduce font size */
-    }
-
-    .table input {
+    .table th, .table td {
         font-size: 14px;
         padding: 8px;
     }
-
-    .submit-btn {
-        font-size: 16px;
-        padding: 12px 20px;
-    }
 }
 
 
-/* Sidebar */
+/* ===================== RESPONSIVE SIDEBAR ===================== */
 .sidebar {
     height: 100%;
     width: 250px;
     position: fixed;
     top: 0;
-    left: -250px; /* Hidden initially */
-    background-color: #6A0DAD;
+    left: -250px; /* Initially hidden */
+    background-color: #000000;
     padding-top: 60px;
     transition: 0.3s;
 }
@@ -476,24 +226,13 @@ input:focus {
 }
 
 .sidebar a:hover {
-    background-color: #5A009D;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    border: none;
-    background: none;
-    color: white;
-    cursor: pointer;
+    background-color: cyan;
 }
 
 /* Open Button */
 .open-btn {
     font-size: 24px;
-    background-color: #6A0DAD;
+    background-color: #ff2f00;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -504,14 +243,8 @@ input:focus {
     z-index: 100;
 }
 
-/* Content */
-.content {
-    padding: 20px;
-    margin-top: 50px;
-}
-
 /* Mobile Responsive */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .sidebar {
         width: 200px;
     }
