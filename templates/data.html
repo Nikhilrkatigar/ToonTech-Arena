@@ -11,38 +11,23 @@
 
     
 
+    
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">×</a>
+    <a href="{{ url_for('home') }}" >HOME</a>
+    <a href="{{ url_for('coding') }}">CODING</a>
+    <a href="{{ url_for('communication') }}">COMMUNICATION</a>
+    <a href="{{ url_for('gaming' )}}">GAMING</a>
+    <a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a>
+    <a href="{{ url_for('data' )}}">DATA ANALYZING</a>
+    <a href="{{ url_for('startup' )}}">STARTUP</a>
+    <a href="{{ url_for('show_register_page') }}">✍ Register Now</a>
 
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="{{ url_for('home') }}" >HOME</a></li>
-            <li><a href="{{ url_for('coding') }}" >CODING</a></li>
-            <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
-            <li><a href="{{ url_for('gaming' )}}">GAMING</a></li>
-            <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
-            <li><a href="{{ url_for('data' )}}" class="active">DATA ANALYZING</a></li>
-            <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
-            <li><a href="{{ url_for('show_register_page') }}" >🎟 Register Now</a></li>
-        </ul>
-       
-    </nav>
-       <!-- 📱 Mobile Menu Button -->
-       <div class="menu-btn">
-        <span>☰ Menu</span>
-    </div>
-
- <!-- 📱 Mobile Menu (Hidden by Default) -->
- <div class="mobile-menu">
-    <ul>
-        <li><a href="{{ url_for('home') }}" class="active">HOME</a></li>
-        <li><a href="{{ url_for('coding') }}">CODING</a></li>
-        <li><a href="{{ url_for('communication') }}">COMMUNICATION</a></li>
-        <li><a href="{{ url_for('gaming' )}}">GAMING</a></li>
-        <li><a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a></li>
-        <li><a href="{{ url_for('data' )}}" class="active">DATA ANALYZING</a></li>
-        <li><a href="{{ url_for('startup' )}}">STARTUP</a></li>
-        <li><a href="{{ url_for('show_register_page') }}">🎟 Register Now</a></li>
-    </ul>
 </div>
+
+<!-- Sidebar Open Button -->
+<button class="open-btn" onclick="toggleSidebar()">☰</button>
 
 
     <div class="event-page">
@@ -56,7 +41,8 @@
         
             <script src="{{ url_for('static', filename='register.js') }}"></script>
             <script src="{{ url_for('static', filename='script.js') }}"></script>
-        
+            <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
+
         </div>
     </div>
 
