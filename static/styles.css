@@ -1,12 +1,20 @@
 /* ===================== GLOBAL STYLES ===================== */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #000000, #bcb5b5);
+    background: linear-gradient(  #8ED968, #103C1F);
     margin: 0;
     padding: 0;
     text-align: center;
     color: white;
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
 
 /* ===================== EVENT PAGE ===================== */
 .event-page {
@@ -30,9 +38,31 @@ body {
     transform: scale(1.5);
 }
 
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    color: #000000;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    color: #000;
+}
+
 .event-details {
     width: 50%;
-    background: linear-gradient(135deg, #000000, #bcb5b5);
+    background: linear-gradient(135deg, #2772A0, #CCDDEA);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
@@ -76,7 +106,7 @@ body {
 
 .nav-item img {
     width: 90%;
-    height: auto;
+    height: 40%;
     border-radius: 15px;
     transition: transform 0.3s;
 }
@@ -86,7 +116,7 @@ body {
 }
 
 .nav-title {
-    margin-top: 8px;
+    margin-top: 20px;
     color: white;
     font-weight: bold;
 }
@@ -116,7 +146,12 @@ body {
 
 .registration-container h2 {
     font-size: 28px;
-    color: #ff4500;
+    font-size: 28px;
+    color: white; /* Or any visible color */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    padding: 20px;
 }
 
 .table {
@@ -203,6 +238,99 @@ input:focus {
     }
 }
 
+/* ===================== REGISTRATION PAGE For B.B.A ===================== */
+
+.registration-container {
+    background: linear-gradient(135deg, #000000, #bcb5b5);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px #FF10F0;
+    width: 60%;
+    margin: 50px auto;
+}
+
+.registration-container h2 {
+    font-size: 28px;
+    font-size: 28px;
+    color: white; /* Or any visible color */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+}
+
+/* Apply styles to both BCA and BBA tables */
+.table, .bba-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td, .bba-table th, .bba-table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.table th, .bba-table th {
+    background: #ff2f00;
+    font-size: 18px;
+}
+
+/* Apply styles to all input fields */
+.table input, .bba-table input, input {
+    width: 90%;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #000000, #bcb5b5);
+    color: rgb(255, 255, 255);
+    border-bottom: 2px solid pink;
+    transition: 0.3s;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    border: none;
+    outline: none;
+}
+
+input:focus {
+    border-bottom: 2px solid cyan;
+    box-shadow: 0 0 20px skyblue;
+    transform: scale(1.05);
+}
+
+/* Apply styles to submit button */
+.submit-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #ff2f00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+}
+
+.submit-btn:hover {
+    background: cyan;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px cyan;
+}
+
+/* ===================== RESPONSIVE DESIGN FOR BOTH TABLES ===================== */
+@media (max-width: 768px) {
+    .registration-container {
+        width: 90%;
+    }
+
+    .table th, .table td, .bba-table th, .bba-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+
 
 /* ===================== RESPONSIVE SIDEBAR ===================== */
 .sidebar {
@@ -232,7 +360,7 @@ input:focus {
 /* Open Button */
 .open-btn {
     font-size: 24px;
-    background-color: #ff2f00;
+    background-color: transparent;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -252,4 +380,28 @@ input:focus {
     .open-btn {
         font-size: 20px;
     }
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===================== RESPONSIVE REGISTRATION PAGE ===================== */
+@media (max-width: 768px) {
+    .footer {
+        background-color: transparent;
+        color: black;
+        text-align: center;
+        padding: 20px;
+        bottom: 0;
+        width: 100%;
+    }
+
+  
 }

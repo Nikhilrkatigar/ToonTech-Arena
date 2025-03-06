@@ -17,7 +17,7 @@ def home():
 
 @app.route('/coding')
 def coding():
-    return render_template('coding.html')
+    return render_template('coding.html', title="Coding Event")
 
 @app.route('/communication')
 def communication():
@@ -43,6 +43,11 @@ def show_register_page():
 def startup():
     return render_template('startup.html')
 
+@app.route('/register_bba', methods=['GET'])
+def show_bba_register_page():
+    return render_template('bba_registration.html')
+
+# ✅ Registration API for B.C.A
 @app.route("/register", methods=["POST"])
 def submit_registration():
     try:
@@ -54,33 +59,74 @@ def submit_registration():
         if len(data) == 0:
             return jsonify({"message": "No data received"}), 400
 
-        user_id = "user1"  # ✅ Replace this with a real user ID if needed
+        # ✅ Extract Course Type (BCA or BBA)
+        course_type = data[0].get("course_type", "Unknown")
 
-        # Track duplicate events
+        # ✅ Track duplicate events
         event_counts = {}
 
         cleaned_data = []
         for entry in data:
-            event_name = entry.get("event_name", "No Event")
+            event_name = entry.get("event_name", "").strip()
 
-            if event_name == "No Event":
+            # ✅ Skip empty event names
+            if not event_name:
                 continue  
 
+            # ✅ Rename duplicate events (e.g., "Coding", "Coding_2")
             if event_name in event_counts:
                 event_counts[event_name] += 1
                 entry["event_name"] = f"{event_name}_{event_counts[event_name]}"
             else:
                 event_counts[event_name] = 1
 
-            entry["user_id"] = user_id  # ✅ Use "user_id" instead of "_id"
+            entry["user_id"] = "user1"  # ✅ Use "user_id" instead of "_id"
+            entry["course_type"] = course_type  # ✅ Store course type (BCA or BBA)
             cleaned_data.append(entry)
 
         if cleaned_data:
             collection.insert_many(cleaned_data)
 
-        return jsonify({"message": "Registration Successful!"}), 200  # ✅ Always return JSON
+        return jsonify({"message": f"{course_type} B.C.A Registration Successful!"}), 200  # ✅ Always return JSON
 
     except Exception as e:
         print(f"Error: {str(e)}")  # ✅ Show errors in Flask logs
         return jsonify({"message": "Server Error", "error": str(e)}), 500
 
+# ✅ Registration API for B.B.A (Updated)
+@app.route("/register_bba", methods=["GET", "POST"])
+def register_bba():
+    try:
+        student_name = request.form.getlist("student_name")
+        phone_number = request.form.getlist("phone_number")
+        register_number = request.form.getlist("register_number")
+        class_name = request.form.getlist("class")
+
+        # ✅ Correct Event Names for B.B.A
+        event_names = ["Management", "Management 2", "Communication", "Data Analyzing", "Data Analyzing 2", "Gaming", "Financial", "Financial 2"]
+
+        registrations = []
+        for i in range(len(student_name)):
+            # ✅ Assign event names properly
+            event_name = event_names[i % len(event_names)]  # Ensures correct mapping
+
+            registrations.append({
+                "event_name": event_name,
+                "student_name": student_name[i],
+                "phone_number": phone_number[i],
+                "register_number": register_number[i],
+                "class": class_name[i],
+                "course_type": "BBA"
+            })
+
+        if registrations:
+            collection.insert_many(registrations)
+
+        return jsonify({"success": True, "message": "B.B.A Registration Successful!"}), 200  # ✅ Return JSON response
+
+    except Exception as e:
+        return jsonify({"success": False, "message": "Error occurred", "error": str(e)}), 500  # ✅ Handle errors properly
+
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)

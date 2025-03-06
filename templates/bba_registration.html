@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.B.A Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+
+    <!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">×</a>
+    <a href="{{ url_for('home') }}" >HOME</a>
+    <a href="{{ url_for('coding') }}">CODING</a>
+    <a href="{{ url_for('communication') }}">COMMUNICATION</a>
+    <a href="{{ url_for('gaming' )}}">GAMING</a>
+    <a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a>
+    <a href="{{ url_for('data' )}}">DATA ANALYZING</a>
+    <a href="{{ url_for('startup' )}}">STARTUP</a>
+    <a href="{{ url_for('show_register_page') }}">✍ Register Now For B.C.A</a>
+    <a href="{{ url_for('show_register_page') }}">✍ Register Now For B.B.A</a>
+</div>
+
+<!-- Sidebar Open Button -->
+<button class="open-btn" onclick="toggleSidebar()">☰</button>
+
+<div class="registration-container">
+    <h2>B.B.A Registration</h2>
+    <form id="bbaForm">
+        <table  class="bba-table">
+            <tr>
+                <th>Event Name</th>
+                <th>Student Name</th>
+                <th>Phone Number</th>
+                <th>Register Number</th>
+                <th>Class</th>
+            </tr>
+            <tr>
+                <td>Management</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+            <tr>
+                <td>Management 2</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+            <tr>
+                <td>Communication</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+            <tr>
+                <td>Data Analyzing</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+            <tr>
+                <td>Data Analyzing 2</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+            <tr>
+                <td>Gaming</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+            <tr>
+                <td>Financial</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+            <tr>
+                <td>Financial 2</td>
+                <td><input type="text" name="student_name"></td>
+                <td><input type="text" name="phone_number"></td>
+                <td><input type="text" name="register_number"></td>
+                <td><input type="text" name="class"></td>
+            </tr>
+        </table>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+          
+</div>
+
+    <script src="{{ url_for('static', filename='register.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='bba_registration.js') }}"></script>
+
+    <div>
+        <footer class="footer">
+            <p>© 2025 ToonTech-Arena.| All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
