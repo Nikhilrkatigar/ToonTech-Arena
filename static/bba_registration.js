@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
         } else {
             let formData = new FormData(this);
-            fetch("/register_bba", {
+            fetch("https://toontech-arena-1.onrender.com/register_bba", {
                 method: "POST",
                 body: formData
             })
