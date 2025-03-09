@@ -6,24 +6,35 @@ body {
     padding: 0;
     text-align: center;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 html, body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden; 
     height: 100%;
-    overflow-x: hidden;
 }
 
+::placeholder {
+    color: white;
+    opacity: 1; 
+  }
+
+  .container {
+    margin: 0 auto;
+    padding-bottom: 0; 
+}
 
 /* ===================== EVENT PAGE ===================== */
 .event-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 15px;
     gap: 20px;
-    width: 100%;
+    width: 93%;
     margin-top: 150px;
 }
 
@@ -38,16 +49,26 @@ html, body {
     transform: scale(1.5);
 }
 
-h2 {
+h1 {
     display: block;
     font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
+    margin-block-start: 1.33em;
+    margin-block-end: 5.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
     color: #000000;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
 }
 
 p {
@@ -74,17 +95,20 @@ p {
     .event-page {
         flex-direction: column;
         text-align: center;
-        margin-top: 50px;
+        gap: 50px;
     }
 
     .event-img {
-        width: 80%;
-        max-width: 350px;
+        width: 90%;
     }
 
     .event-details {
-        width: 90%;
-        padding: 15px;
+        width: 95%;
+        font-size: 1rem;
+    }
+
+    .event-details h2 {
+        font-size: 1.3rem;
     }
 }
 
@@ -92,7 +116,7 @@ p {
 .nav-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 20px 40px;
     padding: 50px;
 }
 
@@ -101,6 +125,8 @@ p {
     max-width: 250px;
     text-align: center;
     border-radius: 15px;
+    gap: 10px;
+
     transition: transform 0.3s ease-in-out;
 }
 
@@ -109,6 +135,7 @@ p {
     height: 40%;
     border-radius: 15px;
     transition: transform 0.3s;
+    margin-block-start: 33px;
 }
 
 .nav-item:hover {
@@ -125,6 +152,7 @@ p {
 @media (max-width: 768px) {
     .nav-container {
         grid-template-columns: repeat(2, 1fr);
+        gap: 81px 12px;
     }
 
     .nav-item {
@@ -334,14 +362,15 @@ input:focus {
 
 /* ===================== RESPONSIVE SIDEBAR ===================== */
 .sidebar {
-    height: 100%;
+    height: 495px;
     width: 250px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -250px; /* Initially hidden */
     background-color: #000000;
     padding-top: 60px;
     transition: 0.3s;
+    overflow-y: auto;
 }
 
 .sidebar a {
@@ -375,33 +404,85 @@ input:focus {
 @media (max-width: 768px) {
     .sidebar {
         width: 200px;
+        height: 850px;
     }
 
     .open-btn {
         font-size: 20px;
+        padding: 80px 0px;
     }
 }
 
 /* ===================== FOOTER ===================== */
-.footer {
+footer {
     background-color: transparent;
     color: black;
     text-align: center;
     padding: 20px;
     bottom: 0;
+    position: relative;
     width: 100%;
 }
 
-/* ===================== RESPONSIVE REGISTRATION PAGE ===================== */
+/* =====================  RESPONSIVE FOOTER ===================== */
 @media (max-width: 768px) {
     .footer {
         background-color: transparent;
         color: black;
         text-align: center;
-        padding: 20px;
-        bottom: 0;
+        padding: 0px;
+        bottom: -80px;
         width: 100%;
+        position: relative;
     }
 
   
+}
+
+/* ===================== HOME PAGE TITLE ===================== */
+
+h1 {
+    display: block;
+    font-size: 66px;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    color: #000000;
+}
+
+/* ===================== RESPONSIVE HOME PAGE TITLE  ===================== */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 35px;
+        margin-block-start: 33px;
+        margin-block-end: 1.33em;
+    }
+}
+
+/* ===================== sub PAGE TITLE  ===================== */
+.event-title {
+    text-align: center;
+    font-size: 66px;
+   margin-top: 0px;
+   margin-block-end: -168px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    color: #000000;
+}
+
+/* =====================  RESPONSIVE sub PAGE TITLE  ===================== */
+
+@media (max-width: 768px) {
+    .event-title {
+       
+        font-size: 40px;
+       margin-top: 0px;
+       margin-block-end: -168px;
+       margin-block-start:-20px ;
+        
+    }
 }
