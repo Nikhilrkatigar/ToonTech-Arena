@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatstyle.css') }}">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">×</a>
+    <a href="{{ url_for('home') }}">HOME</a>
+    <a href="{{ url_for('coding') }}">CODING</a>
+    <a href="{{ url_for('communication') }}">COMMUNICATION</a>
+    <a href="{{ url_for('gaming') }}">GAMING</a>
+    <a href="{{ url_for('quiz') }}">QUIZ & TREASURE</a>
+    <a href="{{ url_for('data') }}">DATA ANALYZING</a>
+    <a href="{{ url_for('startup') }}">STARTUP</a>
+    <a href="{{ url_for('show_register_page') }}">✍ Register Now (B.C.A)</a>
+    <a href="{{ url_for('show_bba_register_page') }}">✍ Register Now (B.B.A)</a>
+    <a href="{{ url_for('show_chat_page') }}">💬 Live global Chat</a>
+</div>
+
+
+
+
+
+<!-- Sidebar Open Button -->
+<button class="open-btn" onclick="toggleSidebar()">☰</button>
+
+<div id="chat-container">
+    <h2>Live Chat</h2>
+    <ul id="message-list"></ul>
+    <input type="text" id="message" placeholder="Type a message...">
+    <button id="sendButton">Send</button>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Load messages when page loads
+        $.get('/get_messages', function(data) {  // Changed from '/chat' to '/get_messages'
+            if (data.messages) {
+                data.messages.forEach(msg => {
+                    $('#message-list').append(
+                        `<li>${msg.text} <button onclick="deleteMessage('${msg.text}')">X</button></li>`
+                    );
+                });
+            }
+        });
+
+        // Send message
+        $("#sendButton").click(function() {
+            let text = $('#message').val();
+            if (text) {
+                $.ajax({
+                    url: '/send_message',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ text: text }),
+                    success: function(response) {
+                        $('#message-list').append(`<li>${text} <button onclick="deleteMessage('${text}')">X</button></li>`);
+                        $('#message').val('');
+                    },
+                    error: function(err) {
+                        console.log("Error sending message:", err);
+                    }
+                });
+            }
+        });
+    });
+
+    function deleteMessage(text) {
+        $.ajax({
+            url: '/delete_message',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ text: text }),
+            success: function(response) {
+                $('li').filter(function() {
+                    return $(this).text().includes(text);
+                }).remove();
+            },
+            error: function(err) {
+                console.log("Error deleting message:", err);
+            }
+        });
+    }
+</script>
+
+<script src="{{ url_for('static', filename='register.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='sidebar.js') }}"></script>
+</body>
+<footer class="footer">
+    <p>Global College Of Management, IT & Commerce</p>
+</footer>
+
+
+</html>

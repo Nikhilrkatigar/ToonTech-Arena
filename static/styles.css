@@ -1,11 +1,11 @@
 /* ===================== GLOBAL STYLES ===================== */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(  #8ED968, #103C1F);
+    background: snow;
     margin: 0;
     padding: 0;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
 }
@@ -18,7 +18,7 @@ html, body {
 }
 
 ::placeholder {
-    color: white;
+    color: rgb(0, 0, 0);
     opacity: 1; 
   }
 
@@ -103,7 +103,7 @@ p {
     }
 
     .event-details {
-        width: 95%;
+        width: 67%;
         font-size: 1rem;
     }
 
@@ -144,7 +144,7 @@ p {
 
 .nav-title {
     margin-top: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
@@ -175,7 +175,7 @@ p {
 .registration-container h2 {
     font-size: 28px;
     font-size: 28px;
-    color: white; /* Or any visible color */
+    color: rgb(0, 0, 0); 
     text-align: center;
     position: relative;
     z-index: 10;
@@ -269,7 +269,7 @@ input:focus {
 /* ===================== REGISTRATION PAGE For B.B.A ===================== */
 
 .registration-container {
-    background: linear-gradient(135deg, #000000, #bcb5b5);
+    background: rgb(202, 202, 202) ;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 10px 10px 15px #FF10F0;
@@ -278,9 +278,9 @@ input:focus {
 }
 
 .registration-container h2 {
+  
     font-size: 28px;
-    font-size: 28px;
-    color: white; /* Or any visible color */
+    color: rgb(0, 0, 0); 
     text-align: center;
     position: relative;
     z-index: 10;
@@ -309,8 +309,8 @@ input:focus {
     width: 90%;
     padding: 5px;
     font-size: 16px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #000000, #bcb5b5);
+    border-radius: 5px solid black;
+    background:  snow ;
     color: rgb(255, 255, 255);
     border-bottom: 2px solid pink;
     transition: 0.3s;
@@ -322,7 +322,7 @@ input:focus {
 }
 
 input:focus {
-    border-bottom: 2px solid cyan;
+    border-bottom: 2px solid rgb(0, 0, 0);
     box-shadow: 0 0 20px skyblue;
     transform: scale(1.05);
 }
@@ -360,44 +360,58 @@ input:focus {
 
 
 
-/* ===================== RESPONSIVE SIDEBAR ===================== */
+/* =====================  SIDEBAR ===================== */
 .sidebar {
-    height: 495px;
+    height: 100%;
     width: 250px;
-    position: absolute;
+    position: fixed;
+    left: -250px;
     top: 0;
-    left: -250px; /* Initially hidden */
-    background-color: #000000;
-    padding-top: 60px;
-    transition: 0.3s;
-    overflow-y: auto;
+    background-color: #2B2B2B;
+    padding-top: 100px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar a {
-    padding: 15px;
+    padding: 12px 20px;
     text-decoration: none;
     font-size: 18px;
-    color: white;
+    color: #D1D0D0;
     display: block;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .sidebar a:hover {
-    background-color: cyan;
+    background-color: #5C4E4E;
 }
 
-/* Open Button */
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #D1D0D0;
+}
+
 .open-btn {
     font-size: 24px;
-    background-color: transparent;
-    color: white;
-    border: none;
-    padding: 10px 20px;
     cursor: pointer;
+    background-color: #5C4E4E;
+    color: white;
+    padding: 10px 15px;
+    border: none;
     position: fixed;
-    top: 10px;
     left: 10px;
-    z-index: 100;
+    top: 10px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.open-btn:hover {
+    background-color: #988686;
 }
 
 /* Mobile Responsive */
@@ -486,3 +500,45 @@ h1 {
         
     }
 }
+
+
+/* Dark Mode Styling */
+.dark-mode {
+    background-color: #1A1A1A;
+    color: #D1D0D0;
+}
+
+.dark-mode .sidebar {
+    background-color: #3A3A3A;
+}
+
+.dark-mode .sidebar a {
+    color: #FFFFFF;
+}
+
+.dark-mode .sidebar a:hover {
+    background-color: #5C4E4E;
+}
+
+.dark-mode #chat-container {
+    background: #333;
+}
+
+.dark-mode #message-list li {
+    background: #444;
+}
+
+.dark-mode #message {
+    background: #222;
+    color: white;
+}
+
+.dark-mode button {
+    background: #5C4E4E;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background: #988686;
+}
+

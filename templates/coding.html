@@ -22,6 +22,7 @@
     <a href="{{ url_for('startup' )}}">STARTUP</a>
     <a href="{{ url_for('show_register_page') }}">✍ Register Now (B.C.A)</a>
     <a href="{{ url_for('show_bba_register_page') }}">✍ Register Now (B.B.A)</a>
+    <a href="{{ url_for('show_chat_page') }}">💬 Live global Chat</a>
 
 </div>
 
@@ -29,6 +30,9 @@
 
 <!-- Sidebar Open Button -->
 <button class="open-btn" onclick="toggleSidebar()">☰</button>
+
+
+
 
 <div class="event-title">
     <h3>💻 Doraemon’s Techno Gadgets</h3>
@@ -43,17 +47,19 @@
                 <p><b>Skills Required:</b> Problem-solving, Logic, Programming</p>
                 <p><b>Languages:</b> Python, Java, C++</p>
 
+            </div>
+        </div>
             <script src="{{ url_for('static', filename='register.js') }}"></script>
             <script src="{{ url_for('static', filename='script.js') }}"></script>
             <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
 
-        </div>
-    </div>
+       
+    </body>
     <div>
         <footer class="footer">
-            <p>© 2025 ToonTech-Arena.| All Rights Reserved.</p>
+            <p>Global College Of Management, IT & Commerce</p>
         </footer>
     </div>
 
-</body>
+
 </html>

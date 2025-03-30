@@ -21,10 +21,15 @@
     <a href="{{ url_for('startup' )}}">STARTUP</a>
     <a href="{{ url_for('show_register_page') }}">✍ Register Now For B.C.A</a>
     <a href="{{ url_for('show_register_page') }}">✍ Register Now For B.B.A</a>
+    <a href="{{ url_for('show_chat_page') }}">💬 Live global Chat</a>
 </div>
 
 <!-- Sidebar Open Button -->
 <button class="open-btn" onclick="toggleSidebar()">☰</button>
+
+
+
+
 
 <div class="registration-container">
     <h2>B.B.A Registration</h2>
@@ -103,12 +108,12 @@
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
     <script defer src="{{ url_for('static', filename='bba_registration.js') }}"></script>
-
+</body>
     <div>
         <footer class="footer">
-            <p>© 2025 ToonTech-Arena.| All Rights Reserved.</p>
+            <p>Global College Of Management, IT & Commerce</p>
         </footer>
     </div>
 
-</body>
+
 </html>
