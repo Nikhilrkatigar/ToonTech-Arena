@@ -24,6 +24,17 @@ body {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
+.sidebar a {
+    color: #D1D0D0;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #5C4E4E;
+    border-radius: 5px;
+}
 
 /* Sidebar Button */
 .open-btn {

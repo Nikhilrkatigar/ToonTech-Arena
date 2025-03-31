@@ -60,20 +60,25 @@ def show_bba_register_page():
 def show_chat_page():
     return render_template('chat.html')
 
+MAX_MESSAGES = 400  # Change from 6 to 400
+
+messages = []  # Store messages in memory
+
+
 # ✅ API to fetch messages from MongoDB
 @app.route('/get_messages', methods=['GET'])
 def get_messages():
      messages = list(chat_collection.find({}, {"_id": 0, "text": 1}))  # Ensure correct format
-     return jsonify({"messages": messages})  # Always return JSON with a 'messages' key
+     return jsonify({"messages": messages[-MAX_MESSAGES:]})  # Return last 400 messages # Always return JSON with a 'messages' key
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
+    global messages
     data = request.get_json()
-    if not data or 'text' not in data:
-        return jsonify({"error": "No message provided"}), 400
-
-    chat_collection.insert_one({"text": data["text"]})  # Store in MongoDB
-    return jsonify({"status": "Message sent"}), 200
+    messages.append({"text": data["text"]})
+    if len(messages) > MAX_MESSAGES:
+        messages.pop(0)  # Remove oldest message
+    return jsonify({"success": True})
 
 # ✅ WebSocket: Handle sending messages
 @socketio.on('send_message')
