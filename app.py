@@ -16,6 +16,8 @@ db = client["toontech_arena"]
 collection = db["registrations"]
 chat_collection = db["messages"]  # Chat messages collection
 
+MAX_MESSAGES = 400  # Maximum number of messages to keep in memory
+
 # ✅ Home Page
 @app.route('/')
 def home():
@@ -60,25 +62,26 @@ def show_bba_register_page():
 def show_chat_page():
     return render_template('chat.html')
 
-MAX_MESSAGES = 400  # Change from 6 to 400
-
-messages = []  # Store messages in memory
-
-
 # ✅ API to fetch messages from MongoDB
 @app.route('/get_messages', methods=['GET'])
 def get_messages():
-     messages = list(chat_collection.find({}, {"_id": 0, "text": 1}))  # Ensure correct format
-     return jsonify({"messages": messages[-MAX_MESSAGES:]})  # Return last 400 messages # Always return JSON with a 'messages' key
+    messages = list(chat_collection.find({}, {"_id": 0, "text": 1}))  
+    return jsonify({"messages": messages[-MAX_MESSAGES:]})  
 
+# ✅ API to send a message (Fixed variable issue)
 @app.route('/send_message', methods=['POST'])
 def send_message():
-    global messages
     data = request.get_json()
-    messages.append({"text": data["text"]})
-    if len(messages) > MAX_MESSAGES:
-        messages.pop(0)  # Remove oldest message
-    return jsonify({"success": True})
+    
+    if not data or "text" not in data:
+        return jsonify({"error": "Message text required"}), 400
+
+    message_text = data["text"]
+
+    # ✅ Store message in MongoDB
+    chat_collection.insert_one({"text": message_text})
+
+    return jsonify({"success": True, "message": "Message sent successfully!"})
 
 # ✅ WebSocket: Handle sending messages
 @socketio.on('send_message')
@@ -93,13 +96,12 @@ def handle_send_message(data):
 @app.route('/delete_message', methods=['POST'])
 def delete_message():
     data = request.get_json()
+    
     if not data or 'text' not in data:
         return jsonify({"error": "No message provided"}), 400
 
     chat_collection.delete_one({"text": data["text"]})
-    return jsonify({"status": "Message deleted"}), 200
-
-
+    return jsonify({"status": "Message deleted successfully!"}), 200
 
 # ✅ Registration API for B.C.A
 @app.route("/register", methods=["POST"])
